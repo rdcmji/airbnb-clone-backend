@@ -14,6 +14,8 @@ from pathlib import Path
 import os
 import environ
 import dj_database_url
+import sentry_sdk
+from sentry_sdk.integrations.django import DjangoIntegration
 
 env = environ.Env()
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -194,3 +196,13 @@ GH_SECRET = env("GH_SECRET")
 
 CF_ID = env("CF_ID")
 CF_TOKEN = env("CF_TOKEN")
+
+if not DEBUG:
+    sentry_sdk.init(
+        dsn="https://7ad8a50dbfc94d4f8050ca9f6279f883@o4503997846847488.ingest.sentry.io/4503997848551424",
+        integrations=[
+            DjangoIntegration(),
+        ],
+        traces_sample_rate=1.0,
+        send_default_pii=True,
+    )
