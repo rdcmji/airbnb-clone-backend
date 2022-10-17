@@ -9,6 +9,7 @@ services:
     name: airbnbclone
     env: python
     region: singapore
+    plan: free
     buildCommand: "./build.sh"
     startCommand: "gunicorn mysite.wsgi:application"
     envVars:
