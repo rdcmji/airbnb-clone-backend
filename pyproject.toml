@@ -8,7 +8,7 @@ readme = "README.md"
 packages = [{include = "airbnb_clone_backend"}]
 
 [tool.poetry.dependencies]
-python = "^3.7"
+python = "^3.10"
 Django = "~4.0"
 black = "^22.8.0"
 djangorestframework = "^3.14.0"
